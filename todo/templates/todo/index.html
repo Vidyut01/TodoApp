@@ -1,0 +1,20 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'todo/style.css' %}">
+
+{% if tasks %}
+    <div class="blocks">
+        {% for task in tasks %}
+        <div class="task_block">
+            <h3>{{ task.task_name }}</h3>
+            <div class="task_details">
+            <p>{{ task.task_description }}</p>
+            <p>{{ task.due_date }}</p>
+            {% if task.done %}<p>Complete</p>{% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <h2>No tasks created</h2>
+{% endif %}
