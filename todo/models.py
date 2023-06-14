@@ -8,9 +8,12 @@ class Task(models.Model):
     create_date = models.DateTimeField("Date made")
     due_date = models.DateTimeField("Task due date and time")
     done = models.BooleanField("Task id done")
+    user = models.CharField(max_length=100)
     
 
     def __str__(self):
         return self.task_name
+    
+
     
 

@@ -1,0 +1,42 @@
+{% load static %}
+<title>{{ task_data.task_name }}</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'todo/nav.css' %}">
+<link rel="stylesheet" href="{% static 'todo/task.css' %}">
+
+<body>
+    <nav class="navbar navbar-dark bg-dark margin_nav">
+        <div class="titles">
+            <a id="name" class="navbar-brand" href="{% url 'todo:index' %}">TODOAPP</a>
+            <a class="nav-link nav_link" href="{% url 'todo:index' %}">Dashboard </a>
+            <a class="nav-link nav_link" href="{% url 'todo:new' %}">Add Task </a>
+        </div>
+        <div class="titles" id="userinfo">
+            <a class="nav-link nav_link" href="{% url 'logout' %}">Logout </a>
+            <p class="" id="user_name">{{ user_name }}</p>
+        </div>
+    </nav>
+
+    <div class="body-content">
+        <h1>{{ task_data.task_name }}</h1>
+        <h3>{{ task_data.task_description }}</h3>
+
+        <p>Create Date: {{ task_data.create_date }}</p>
+        <p>Due date: {{ task_data.due_date }}</p>
+
+        <p>Status: {{ status }}</p>
+
+        <div class="options">
+            <form action="{% url 'todo:task' task_data.id%}" method="post">
+                {% csrf_token %}
+                {% if task_data.done %}
+                    <button type="submit" name="cmp" class="btn btn-primary">Uncomplete Task</button>
+                {% else %}
+                    <button type="submit" name="cmp" class="btn btn-success">Complete Task</button>
+                {% endif %}
+                <button type="submit" name="rm" class="btn btn-danger">Remove Task</button>
+            </form>
+        </div>
+    </div>
+</body>

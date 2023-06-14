@@ -1,0 +1,42 @@
+.margin_nav {
+    padding-left: 80px;
+    padding-right: 80px;
+    height: 5em;
+}
+
+.margin_nav #name{
+    font-size: x-large;
+    padding: 2px;
+}
+
+.nav_link {
+    color: white;
+    padding: 1em;
+}
+
+.nav_link:hover {
+    color: white; 
+    text-decoration:none; 
+    cursor:pointer;  
+}
+
+#user_name {
+    color: white;
+    padding-top: 14px;
+    font-size: 24px;
+    font-weight: bold;
+    
+}
+
+#userinfo {
+    align-items: center;
+}
+
+.titles {
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    justify-content: space-between;
+}

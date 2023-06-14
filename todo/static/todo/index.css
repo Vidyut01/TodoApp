@@ -1,0 +1,69 @@
+/* p {
+    font-size: x-large;
+    color: green;
+} */
+body {
+    background-color: beige;
+}
+
+.blocks {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    padding-left: 1%;
+}
+
+.task_block {
+    background-color: rgb(181, 236, 168);
+    aspect-ratio: 1 / 1;
+    width: 16em;
+    border: 1px black solid;
+    border-radius: 16px;
+    margin: 1%;
+    padding-left: 1%;
+    position: relative;
+    word-wrap: break-word;
+    -moz-transition: all .1s ease-in;
+    -o-transition: all .1s ease-in;
+    -webkit-transition: all .1s ease-in;
+    transition: all .1s ease-in;
+}
+
+.task_block:hover {
+    background-color: rgb(77, 241, 77);
+}
+
+.task_details p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.task_details {
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+}
+
+.add_task {
+    display: flex;
+    align-items: center;
+    height: 5em;
+    border-bottom: 1px black solid;
+    padding-left: 1em;
+}
+
+.link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#heading {
+    padding-left: 3%;
+    padding-top: 1%;
+    height: 10%;
+}

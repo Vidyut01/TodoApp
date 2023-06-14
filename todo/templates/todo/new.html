@@ -1,0 +1,47 @@
+{% load static %}
+<title>Add New Task</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'todo/nav.css' %}">
+<link rel="stylesheet" href="{% static 'todo/new.css' %}">
+
+<body>
+    <nav class="navbar navbar-dark bg-dark margin_nav">
+        <div class="titles">
+            <a id="name" class="navbar-brand" href="{% url 'todo:index' %}">TODOAPP</a>
+            <a class="nav-link nav_link" href="{% url 'todo:index' %}">Dashboard </a>
+            <a class="nav-link nav_link" href="{% url 'todo:new' %}">Add Task </a>
+        </div>
+        <div class="titles" id="userinfo">
+            <a class="nav-link nav_link" href="{% url 'logout' %}">Logout </a>
+            <p class="" id="user_name">{{ user_name }}</p>
+        </div>
+    </nav>
+
+    <div class="body-content">
+        
+
+        <div class="container">
+            <div class="new_form ">
+                
+                <h1>Add New Task</h1>
+                <form action="{% url 'todo:new' %}" method="post">
+                    {% csrf_token %}
+                    <label for="task_name">Task Name</label>
+                    <input class="form-control" type="text" id="task_name" name="task_name"><br>
+
+                    <label for="task_desc">Task Description</label>
+                    <input class="form-control" type="text" id="task_desc" name="task_desc"><br>
+                    
+                    <label for="due_date">Enter the date and time this is due</label>
+                    <input class="form-control" type="datetime-local" id="due_date" name="due_date"><br>
+
+                    <input class="btn btn-secondary btn-lg" type="submit" value="Create Task">
+                    
+                </form>
+                {% if message %}<div class="alert alert-warning">{{ message }}</div>{% endif %}
+            </div>
+            
+        </div>
+    </div>
+</body>

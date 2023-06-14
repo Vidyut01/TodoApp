@@ -1,20 +1,50 @@
 {% load static %}
+{% load read_dict %}
 
-<link rel="stylesheet" href="{% static 'todo/style.css' %}">
+<title>Dashboard</title>
 
-{% if tasks %}
-    <div class="blocks">
-        {% for task in tasks %}
-        <div class="task_block">
-            <h3>{{ task.task_name }}</h3>
-            <div class="task_details">
-            <p>{{ task.task_description }}</p>
-            <p>{{ task.due_date }}</p>
-            {% if task.done %}<p>Complete</p>{% endif %}
-            </div>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+<link rel="stylesheet" href="{% static 'todo/nav.css' %}">
+<link rel="stylesheet" href="{% static 'todo/index.css' %}">
+
+<body>
+    <nav class="navbar navbar-dark bg-dark margin_nav">
+        <div class="titles">
+            <a id="name" class="navbar-brand" href="{% url 'todo:index' %}">TODOAPP</a>
+            <a class="nav-link nav_link" href="{% url 'todo:index' %}">Dashboard </a>
+            <a class="nav-link nav_link" href="{% url 'todo:new' %}">Add Task </a>
         </div>
-        {% endfor %}
-    </div>
-{% else %}
-    <h2>No tasks created</h2>
-{% endif %}
+        <div class="titles" id="userinfo">
+            <a class="nav-link nav_link" href="{% url 'logout' %}">Logout </a>
+            <p class="" id="user_name">{{ user_name }}</p>
+        </div>
+    </nav>
+    
+    <h1 id="heading">Dashboard</h1>
+
+    {% if tasks %}
+        <div class="blocks">
+            {% for task in tasks %}
+            <div class="task_block" {% if task.done %}style="opacity: 0.6"{% endif %}>
+                <h3>{{ task.task_name }}</h3>
+                <div class="task_details">
+                    <p>{{ task.task_description }}</p>
+                    <p>Due {{ task.due_date }}</p>
+                    {% if status|get_value:task.id %}
+                        <p {% if status|get_value:task.id == "Overdue" %}style="color: red; font-weight: bold;"{% endif %}>
+                            {{ status|get_value:task.id }}
+                        </p>
+                    {% endif %}
+                </div>
+            <a href="{% url 'todo:task' task.id %}">
+                <span class="link"></span>
+            </a>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <h2>No tasks created</h2>
+    {% endif %}
+</body>
+
