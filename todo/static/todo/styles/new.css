@@ -4,8 +4,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: beige;
     height: 89%;
+    /* background-color: beige; */
 }
 
 label {
@@ -23,7 +23,7 @@ label {
     border: 1px black solid;
     border-radius: 2em;
     padding: 2em;
-    background-color: rgb(13, 226, 226);
+    background-color: rgb(216, 226, 226); /* rgb(13, 226, 226) */
 }
 
 .new_form h1 {

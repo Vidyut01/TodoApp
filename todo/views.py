@@ -31,7 +31,7 @@ from django.contrib.auth.decorators import login_required
 @login_required(login_url="/accounts/login/")
 def index(request):
     username = request.user.username
-    tasks = Task.objects.filter()
+    tasks = Task.objects.filter(user=username).order_by("-id")
     status = {}
     for i in tasks:
         if i.done:
@@ -47,7 +47,7 @@ def index(request):
 
 @login_required(login_url="/accounts/login/")
 def task(request, task_id):
-    task_data = get_object_or_404(Task, pk=task_id)
+    task_data = get_object_or_404(Task, pk=task_id, user=request.user.username)
 
     if request.method == "GET":
         status = "Due"
@@ -99,7 +99,8 @@ def new(request):
             task_description=values["task_desc"],
             create_date=timezone.now(),
             due_date=due_date,
-            done=False
+            done=False,
+            user=request.user.username
             )
         
         new_task.save()

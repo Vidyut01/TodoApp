@@ -2,9 +2,9 @@
     font-size: x-large;
     color: green;
 } */
-body {
+/* body {
     background-color: beige;
-}
+} */
 
 .blocks {
     display: flex;
@@ -15,8 +15,8 @@ body {
 
 .task_block {
     background-color: rgb(181, 236, 168);
-    aspect-ratio: 1 / 1;
-    width: 16em;
+    aspect-ratio: 1.5 / 1;
+    width: 19em;
     border: 1px black solid;
     border-radius: 16px;
     margin: 1%;
@@ -66,4 +66,8 @@ body {
     padding-left: 3%;
     padding-top: 1%;
     height: 10%;
+}
+
+#notask {
+    padding-left: 2%;
 }

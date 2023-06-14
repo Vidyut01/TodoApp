@@ -1,0 +1,9 @@
+#username-err, #password_re-err{
+    display: none;
+    color: red;
+
+}
+
+#password-err {
+    font-size: small;
+}
