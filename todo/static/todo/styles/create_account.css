@@ -1,6 +1,7 @@
 #username-err, #password_re-err{
     display: none;
     color: red;
+    font-size: small;
 
 }
 

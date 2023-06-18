@@ -7,8 +7,9 @@
 
 <link rel="stylesheet" href="{% static 'todo/styles/nav.css' %}">
 <link rel="stylesheet" href="{% static 'todo/styles/index.css' %}">
+<script src="{% static 'todo/javascript/color_theme.js' %}"></script>
 
-<body>
+<body id='bg'><script>setBody()</script>
     <nav class="navbar navbar-dark bg-dark margin_nav">
         <div class="titles">
             <a id="name" class="navbar-brand" href="{% url 'todo:index' %}">TODOAPP</a>
@@ -16,12 +17,15 @@
             <a class="nav-link nav_link" href="{% url 'todo:new' %}">Add Task </a>
         </div>
         <div class="titles" id="userinfo">
+            <a href="#" onclick="toggleTheme('index');return false;">
+                <img id="theme-icon" src="" alt="theme icon" title="Toggle Dark/Light mode"><script>setIcon()</script>
+            </a>
             <a class="nav-link nav_link" href="{% url 'logout' %}">Logout </a>
             <p class="" id="user_name">{{ user_name }}</p>
         </div>
     </nav>
     
-    <h1 id="heading">Dashboard</h1>
+    <h1 id="heading">Dashboard</h1><script>setHeading()</script>
 
     {% if tasks %}
         <div class="blocks">

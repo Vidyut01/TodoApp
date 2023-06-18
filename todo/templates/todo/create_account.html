@@ -5,13 +5,20 @@
 <link rel="stylesheet" href="{% static 'todo/styles/nav.css' %}">
 <link rel="stylesheet" href="{% static 'todo/styles/new.css' %}">
 <link rel="stylesheet" href="{% static 'todo/styles/create_account.css' %}">
+<script src="{% static 'todo/javascript/color_theme.js' %}"></script>
+<script src="{% static 'todo/javascript/create_account.js' %}" defer></script>
 
-<body>
+<body id="bg"><script>setBody()</script>
     <nav class="navbar navbar-dark bg-dark margin_nav">
         <div class="titles">
             <a id="name" class="navbar-brand" href="{% url 'todo:index' %}">TODOAPP</a>
             <a class="nav-link nav_link" href="{% url 'todo:index' %}">Dashboard </a>
             <a class="nav-link nav_link" href="{% url 'todo:new' %}">Add Task </a>
+        </div>
+        <div class="titles" id="userinfo">
+            <a href="#" onclick="toggleTheme('form');return false;">
+                <img id="theme-icon" src="" alt="theme icon"><script>setIcon()</script>
+            </a>
         </div>
     </nav>
 
@@ -19,13 +26,13 @@
         
 
         <div class="container">
-            <div class="new_form ">
+            <div class="new_form " id="form-bg"><script>setForm()</script>
                 
                 <h1>Create Account</h1>
                 <form action="{% url 'todo:create_account' %}" method="post" onsubmit="return validateInputs()">
                     {% csrf_token %}
                     <label for="username">Enter a user name</label>
-                    <input class="form-control" type="text" id="username" name="username" required>
+                    <input autofocus class="form-control" type="text" id="username" name="username" required>
                     <p id="username-err"></p><br>
 
                     <label for="password">Enter a new password</label>
@@ -48,4 +55,5 @@
     </div>
 </body>
 
-<script src="{% static 'todo/javascript/create_account.js' %}"></script>
+
+

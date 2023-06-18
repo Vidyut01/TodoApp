@@ -23,7 +23,7 @@ label {
     border: 1px black solid;
     border-radius: 2em;
     padding: 2em;
-    background-color: rgb(216, 226, 226); /* rgb(13, 226, 226) */
+    background-color: rgb(216, 226, 226); /* #5f5e5e;rgb(13, 226, 226) */
 }
 
 .new_form h1 {
