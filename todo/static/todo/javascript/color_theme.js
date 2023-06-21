@@ -47,6 +47,15 @@ function setIcon() {
     }
 }
 
+function setNoTask() {
+    if (localStorage.getItem('theme') === 'dark') {
+        document.getElementById("notask").style.color = "#ffffff"
+    }
+    else {
+        document.getElementById("notask").style.color = "#000000"
+    }
+}
+
 function toggleTheme(page="") {
     if (localStorage.getItem('theme') === 'dark') {
         localStorage.setItem('theme', 'light')
@@ -75,6 +84,10 @@ function toggleTheme(page="") {
         setForm()
     }
     
+    try {
+        setNoTask()
+    }
+    catch (e) {}
     
     
     
