@@ -68,6 +68,13 @@
     height: 10%;
 }
 
+.not {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #notask {
-    padding-left: 2%;
+    margin-bottom: 25%;
 }

@@ -85,6 +85,7 @@ function toggleTheme(page="") {
     }
     
     try {
+        document.getElementById("notask").style.transition = "all 0.5s"
         setNoTask()
     }
     catch (e) {}
