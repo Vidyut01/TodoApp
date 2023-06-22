@@ -3,5 +3,5 @@ __pycache__
 *.sqlite3
 testpassword
 dbs
-fa.txt
 staticfiles
+
