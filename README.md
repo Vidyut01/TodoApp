@@ -15,6 +15,8 @@ git clone https://github.com/Vidyut01/TodoApp.git
 ```
 
 # Running the app using Django development server
+To run this app, you will need python and pip. If you don't already have it, get it from https://www.python.org/
+
 Before running the project, we need to install the required python packages. Run
 
 ```
