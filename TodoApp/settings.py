@@ -135,8 +135,8 @@ LOGOUT_REDIRECT_URL = '/todo'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # HTTPS
-CSRF_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
 
-SESSION_COOKIE_SECURE = True
+# SESSION_COOKIE_SECURE = True
 
 # SECURE_SSL_REDIRECT = True
