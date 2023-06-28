@@ -20,7 +20,7 @@ To run this app, you will need python and pip. If you don't already have it, get
 Before running the project, we need to install the required python packages. Run
 
 ```
-pip -r requirments.txt
+pip install -r requirments.txt
 ```
 
 This will install Django and whitenoise. Whitenoise is used to serve static files when `DEBUG = False` in `TodoApp/settings.py`
